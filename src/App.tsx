@@ -1,10 +1,9 @@
 import React from 'react';
+import { AppRoutes } from './routes/routes';
 
 const App: React.FC = () => {
   return (
-    <h1 className='text-3xl text-center'>
-      Spector Rags Sass
-    </h1>
+    <AppRoutes />
   );
 }
 
