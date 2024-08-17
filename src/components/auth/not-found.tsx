@@ -6,7 +6,7 @@ const NotFound: FC = () => {
     const navigate = useNavigate();
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '100px' }}>
+        <div className='text-center pt-32 text-tertiary'>
             <h1>404 - Page Not Found</h1>
             <button onClick={() => navigate('/dashboard')}>Go to Dashboard</button>
         </div>

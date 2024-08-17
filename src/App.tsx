@@ -2,9 +2,11 @@ import React from 'react';
 import { AppRoutes } from './routes/routes';
 
 const App: React.FC = () => {
-  return (
-    <AppRoutes />
-  );
-}
+    return (
+        <div className='bg-primary h-screen'>
+            <AppRoutes />
+        </div>
+    );
+};
 
 export default App;

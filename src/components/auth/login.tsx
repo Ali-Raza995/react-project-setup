@@ -14,7 +14,7 @@ const Login = () => {
             </div>
 
             <div className="mt-6">
-                <CommonButton text="Sign up with Google" onClick={handleGoogleSignUp} width="w-[30rem]" height="h-12" />
+                <CommonButton text="Sign up with Google" onClick={handleGoogleSignUp} width="w-[30rem]" icon={"/public/assets/google-logo.svg"} />
             </div>
         </div>
     );
