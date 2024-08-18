@@ -21,7 +21,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChan
                     <p className="text-tertiary text-[14px] cursor-pointer">{btnText}</p>
                 </div>
             </div>
-            <div className="bg-primary h-screen flex flex-col items-center mt-20 lMob:px-2">
+            <div className="flex flex-col items-center mt-20 lMob:px-2">
                 <p className="text-tertiary text-3xl">Welcome to Spector</p>
                 <div className="text-light_grey text-center text-base mt-4">
                     <p>We’re looking forward to having you as an early adopter.</p>
