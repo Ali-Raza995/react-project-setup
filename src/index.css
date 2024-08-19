@@ -15,3 +15,13 @@ body {
     background-clip: text;
     color: transparent;
 }
+
+._bg-vector {
+    background: url('/public/assets/auth-vector.svg') no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
