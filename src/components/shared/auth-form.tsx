@@ -33,7 +33,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
                 </div>
             </div>
             <div className="flex flex-col items-center mt-20 lMob:px-2">
-                <p className="text-tertiary text-3xl">Welcome to Spector</p>
+                <p className="text-tertiary text-3xl">Welcome to Specter</p>
                 <div className="text-light_grey text-center text-base mt-4">
                     <p>We’re looking forward to having you as an early adopter.</p>
                     <p>Let’s create your account to get started.</p>
