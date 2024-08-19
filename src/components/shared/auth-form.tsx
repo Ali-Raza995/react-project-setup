@@ -6,10 +6,21 @@ interface AuthFormProps {
     mode?: string;
     email: string;
     onEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onGoogleSignUp: () => void;
+    onEmailSubmit: () => void;
+    onGoogleSignUp?: () => void;
+    loading?: boolean;
+    error?: string | null;
 }
 
-const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChange, onGoogleSignUp }) => {
+const AuthForm: React.FC<AuthFormProps> = ({
+    mode = 'SignUp',
+    email,
+    onEmailChange,
+    onEmailSubmit,
+    onGoogleSignUp,
+    loading,
+    error,
+}) => {
     const btnText = mode === 'SignUp' ? 'Sign up' : 'Sign in';
 
     return (
@@ -41,7 +52,12 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChan
                         onChange={onEmailChange}
                         placeholderColor="text-custom_gray"
                     />
-                    <CommonButton text={btnText} onClick={onGoogleSignUp} />
+                    <CommonButton
+                        text={loading ? 'Sending...' : btnText}
+                        onClick={onEmailSubmit}
+                        // disabled={loading} // Disable the button while loading
+                    />
+                    {error && <p className="text-red-500 mt-2">{error}</p>}
                 </div>
             </div>
         </>
