@@ -36,7 +36,9 @@ const AuthForm: React.FC<AuthFormProps> = ({
                 <p className="text-tertiary text-3xl">Welcome to Specter</p>
                 <div className="text-light_grey text-center text-base mt-4">
                     <p>We’re looking forward to having you as an early adopter.</p>
-                    <p>Let’s create your account to get started.</p>
+                    <p>
+                        Let’s create your account to get started.
+                    </p>
                 </div>
 
                 <div className="mt-6 w-[24rem] flex flex-col gap-8 lMob:px-6 mMob:px-12">
