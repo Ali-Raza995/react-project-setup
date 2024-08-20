@@ -15,7 +15,10 @@ interface AuthFormProps {
 
 const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChange, onEmailSubmit, onGoogleSignUp, loading, error }) => {
     const navigate = useNavigate();
-    
+
+    const formTitle = mode === 'SignUp' ? 'Sign in' : 'Sign up'
+    const googleAuthTitle = mode === 'SignUp' ? 'Sign up' : 'Sign in'
+
     const handleNavigation = () => {
         if (mode == 'SignUp') {
             navigate('/login');
@@ -30,7 +33,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChan
                 <img src="/assets/specter-logo.svg" alt="Specter Logo" />
                 <div className="flex items-center gap-1">
                     <img src="/assets/user.svg" alt="User Icon" />
-                    <p className="text-tertiary text-[14px] cursor-pointer" onClick={handleNavigation}>{mode === 'SignUp' ? 'Sign in' : 'Sign up'}</p>
+                    <p className="text-tertiary text-[14px] cursor-pointer" onClick={handleNavigation}>{formTitle}</p>
                 </div>
             </div>
             <div className="flex justify-center">
@@ -42,7 +45,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChan
                     </div>
 
                     <div className="mt-6 w-[24rem] flex flex-col gap-8 lMob:px-6 mMob:px-12 ">
-                        <CommonButton text="Sign up with Google" onClick={onGoogleSignUp} icon="/assets/google-logo.svg" />
+                        <CommonButton text={`${googleAuthTitle} with Google`} onClick={onGoogleSignUp} icon="/assets/google-logo.svg" />
                         <div className="flex items-center justify-between">
                             <span className="w-full h-px bg-custom-gray"></span>
                             <span className="px-4 text-custom-gray text-xs whitespace-nowrap">Or, continue with email</span>

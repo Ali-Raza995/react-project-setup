@@ -4,7 +4,7 @@ import CreateChatbot from '../../components/chatbot/create-chatbot';
 
 const Chatbot = () => {
     return (
-        <div className="text-white flex">
+        <div className="text-white flex lMob:flex-col">
             <Sidebar />
             <CreateChatbot />
         </div>

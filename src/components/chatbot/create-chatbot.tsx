@@ -2,13 +2,13 @@ import React from 'react';
 
 const CreateChatbot = () => {
     return (
-        <div className="text-white p-8 flex flex-col gap-10">
+        <div className="text-white p-8 flex flex-col gap-10 mt-1">
             <p className="text-xs ont-bold gradient-text">Welcome!</p>
             <div>
                 <h2 className="font-normal text-xl text-tertiary">Your Chatbots</h2>
                 <p className="text-gray-medium ">Here’s where you view and manage your custom chatbots</p>
             </div>
-            <button className="w-72 h-64 bg-dark rounded-3xl flex justify-center items-center border-[#454545] border-dashed border-spacing-5 border-2 p-4">
+            <button className="w-72 h-64 lMob:w-full bg-dark  flex justify-center items-center border-[#454545] loose-dotted-border  p-4 rounded-3xl">
                 <div className="flex items-center flex-col gap-2">
                     <img src={'/assets/dialog.svg'} alt="" width={24} height={24} />
                     <p>Create a new chatbot</p>
