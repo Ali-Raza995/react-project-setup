@@ -8,7 +8,7 @@ const CreateChatbot = () => {
                 <h2 className="font-normal text-xl text-tertiary">Your Chatbots</h2>
                 <p className="text-gray-medium ">Here’s where you view and manage your custom chatbots</p>
             </div>
-            <button className="w-72 h-64 bg-dark rounded-3xl flex justify-center items-center border border-[#454545] border-dashed p-4">
+            <button className="w-72 h-64 bg-dark rounded-3xl flex justify-center items-center border-[#454545] border-dashed border-spacing-5 border-2 p-4">
                 <div className="flex items-center flex-col gap-2">
                     <img src={'/assets/dialog.svg'} alt="" width={24} height={24} />
                     <p>Create a new chatbot</p>

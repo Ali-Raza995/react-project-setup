@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Global styles */
 body {
     font-family: 'IBM Plex Sans', sans-serif;
@@ -11,7 +10,7 @@ body {
 
 .gradient-text {
     /* background-image: linear-gradient(to right, rgba(229, 25, 25, 1), rgba(238, 209, 17, 1), rgba(85, 228, 45, 1), rgba(34, 201, 220, 1), rgba(233, 24, 163, 1)); */
-    background: #98CACE;
+    background: #98cace;
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -20,6 +19,13 @@ body {
 ._sidebar-items-border {
     border: 1px solid #333333;
 }
+.loose-dotted-border {
+    background-image: linear-gradient(to right, #333 10%, rgba(255, 255, 255, 0) 0%);
+    background-position: top;
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+  }
+
 ._bg-vector {
     background: url('/assets/auth-vector.svg') no-repeat center center;
     background-size: cover;
