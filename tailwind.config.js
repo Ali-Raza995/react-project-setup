@@ -15,6 +15,7 @@ export default {
         'gray-medium': '#949494',
         'light-gray': '#AAAAAA',
         'dark': '#1D1D1D',
+        'white': '#ffffff'
       },
       screens: {
         sm: "640px",
