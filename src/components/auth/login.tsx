@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import AuthForm from '../shared/auth-form';
 import useSupabase from '../../hooks/useSupabase';
 import { supabase } from '../../lib/supabase-client';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate()
     const [email, setEmail] = useState('');
     const { loading, error } = useSupabase();
 
@@ -13,7 +15,7 @@ const Login = () => {
 
     const handleEmailSubmit = async () => {
         if (email) {
-            await signInWithEmail();
+            navigate('/chatbot')
         }
     };
 
@@ -30,9 +32,6 @@ const Login = () => {
             if (error) {
                 throw error;
             }
-    
-            // Handle the response data
-            console.log('Data', data);
             // You can use cookies or localStorage here to store any tokens or user info if needed.
         } catch (err: any) {
             console.error('Error', err.message);

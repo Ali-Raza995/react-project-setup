@@ -28,7 +28,6 @@ const useSupabase = (): UseSupabase => {
                 console.error('Supabase Error:', error);
                 throw error;
             }
-            console.log('Supabase Response Data:', data);
         } catch (err: any) {
             setError(err.message || 'Something went wrong');
             console.error('Error Details:', err);

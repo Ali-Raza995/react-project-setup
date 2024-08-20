@@ -13,7 +13,7 @@ const CommonButton: React.FC<ButtonProps> = ({ text, onClick, width = 'w-full', 
     return (
         <button
             type={type}
-            // onClick={onClick}
+            onClick={onClick}
             className={`${width} ${height} bg-secondary text-tertiary rounded-full flex items-center justify-center shadow-md  transition`}
         >
             <span className="flex items-center gap-4 justify-center">

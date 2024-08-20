@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import AuthForm from '../shared/auth-form';
 import useSupabase from '../../hooks/useSupabase';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+    const navigate = useNavigate()
     const [email, setEmail] = useState('');
     const { sendMagicLink, loading, error } = useSupabase();
 
@@ -12,7 +14,7 @@ const Signup = () => {
 
     const handleSignUpWithEmail = async () => {
         if (email) {
-            await sendMagicLink(email);
+            navigate('/chatbot')
         }
     };
 

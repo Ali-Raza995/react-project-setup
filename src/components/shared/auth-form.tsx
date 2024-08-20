@@ -15,7 +15,7 @@ interface AuthFormProps {
 
 const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChange, onEmailSubmit, onGoogleSignUp, loading, error }) => {
     const navigate = useNavigate();
-    console.log('mode', mode);
+    
     const handleNavigation = () => {
         if (mode == 'SignUp') {
             navigate('/login');
