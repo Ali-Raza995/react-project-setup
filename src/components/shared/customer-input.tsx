@@ -25,7 +25,7 @@ const CommonInputField: React.FC<InputFieldProps> = ({
             placeholder={placeholder}
             value={value}
             onChange={onChange}
-            className={`${width} ${height} bg-secondary text-white rounded-full px-4 py-2 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-600 transition placeholder:text-light_grey`}
+            className={`${width} ${height} bg-secondary text-white rounded-full px-4 py-2 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-600 transition placeholder:text-light-grey `}
         />
     );
 };

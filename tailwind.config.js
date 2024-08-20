@@ -7,11 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0A0A0A',
-        secondary: '#333333',
-        tertiary: '#DDDDDD',
-        light_grey: '#949494',
-        custom_gray: '#7E7E7E',
+        'primary': '#0A0A0A',
+        'secondary': '#333333',
+        'tertiary': '#DDDDDD',
+        'light-grey ': '#949494',
+        'custom-gray': '#7E7E7E',
+        'gray-medium': '#949494',
+        'light-gray': '#AAAAAA',
+        'dark': '#1D1D1D',
       },
       screens: {
         sm: "640px",
