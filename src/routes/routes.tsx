@@ -29,7 +29,7 @@ const ProtectedLayout: FC = () => {
 
 export const AppRoutes: FC = () => (
     <Routes>
-        <Route path={ROUTE_CONSTANTS.SLASH} element={<Navigate to={ROUTE_CONSTANTS.DASHBOARD} />} />
+        <Route path={ROUTE_CONSTANTS.SLASH} element={<Navigate to={ROUTE_CONSTANTS.CHATBOT} />} />
 
         <Route element={<AuthLayout redirectAuthenticatedTo={ROUTE_CONSTANTS.CHATBOT} />}>
             <Route path={ROUTE_CONSTANTS.LOGIN} element={<Login />} />

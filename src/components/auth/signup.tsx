@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import AuthForm from '../shared/auth-form';
 import showToast from '../shared/toast';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+    const navigate = useNavigate()
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -26,6 +28,8 @@ const Signup = () => {
                     showToast('error', data.message);
                 } else {
                     showToast('success', data.message);
+                    setEmail('')
+                    navigate('/login')
                 }
             } catch (error) {
                 console.error('Error:', error);
