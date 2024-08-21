@@ -87,12 +87,5 @@ export default [
       'object-shorthand': 'error',
       'arrow-body-style': ['error', 'as-needed'],
     },
-    extends: [
-      'plugin:@typescript-eslint/recommended',
-      'plugin:react/recommended',
-      'plugin:react-hooks/recommended',
-      'plugin:prettier/recommended',
-      'plugin:tailwindcss/recommended',
-    ],
   },
 ];

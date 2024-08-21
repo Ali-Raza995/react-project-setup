@@ -7,7 +7,9 @@ const Sidebar = () => {
     const currentPath = location.pathname;
 
     return (
-        <div className="sm:h-screen p-8 sm:block">
+        <div className="sm:h-screen p-8 sm:block
+        ">
+
             <img src="/assets/specter-logo.svg" alt="Specter" className="specter-logo" />
 
             <div className="flex justify-center lMob:mt-0 mt-12 flex-col">

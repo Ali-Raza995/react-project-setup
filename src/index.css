@@ -7,6 +7,11 @@
 body {
     font-family: 'IBM Plex Sans', sans-serif;
 }
+@layer utilities {
+    .animate-spin-slow {
+      animation: spin 2s linear infinite;
+    }
+  }
 
 .gradient-text {
     /* background-image: linear-gradient(to right, rgba(229, 25, 25, 1), rgba(238, 209, 17, 1), rgba(85, 228, 45, 1), rgba(34, 201, 220, 1), rgba(233, 24, 163, 1)); */

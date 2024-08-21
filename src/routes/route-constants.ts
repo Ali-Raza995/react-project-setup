@@ -4,4 +4,5 @@ export const ROUTE_CONSTANTS = {
   SIGNUP: "/signup",
   DASHBOARD: "/dashboard",
   CHATBOT: "/chatbot",
+  VERIFYEMAIL: "/verify-email",
 };

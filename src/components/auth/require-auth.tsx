@@ -4,13 +4,20 @@ import React from "react";
 
 interface RequireAuthProps {
   children: ReactNode;
+  redirectAuthenticatedTo?: string;  // Optional prop to handle authenticated user redirection
 }
 
-const RequireAuth: FC<RequireAuthProps> = ({ children }) => {
-  const isAuthenticated = Boolean(localStorage.getItem("authToken"));
+const RequireAuth: FC<RequireAuthProps> = ({ children, redirectAuthenticatedTo }) => {
+  const session = localStorage?.getItem("session");
+  const isAuthenticated = session ? JSON.parse(session) : null;
+  
   const location = useLocation();
 
-  if (!isAuthenticated) {
+  if (isAuthenticated && redirectAuthenticatedTo) {
+    return <Navigate to={redirectAuthenticatedTo} state={{ from: location }} replace />;
+  }
+
+  if (!isAuthenticated && !redirectAuthenticatedTo) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 

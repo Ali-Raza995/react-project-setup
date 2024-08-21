@@ -4,16 +4,18 @@ import App from './App';
 import './index.css';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { AppRoutes } from './routes/routes';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const rootElement = document.getElementById('root');
 
 if (rootElement) {
     createRoot(rootElement).render(
-        <StrictMode>
+        // <StrictMode>
             <BrowserRouter>
                 <App />
+                <ToastContainer />
             </BrowserRouter>
-        </StrictMode>
+        // </StrictMode>
     );
 }

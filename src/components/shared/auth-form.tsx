@@ -16,8 +16,9 @@ interface AuthFormProps {
 const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChange, onEmailSubmit, onGoogleSignUp, loading, error }) => {
     const navigate = useNavigate();
 
-    const formTitle = mode === 'SignUp' ? 'Sign in' : 'Sign up'
-    const googleAuthTitle = mode === 'SignUp' ? 'Sign up' : 'Sign in'
+    const formTitle = mode === 'SignUp' ? 'Sign in' : 'Sign up';
+    const googleAuthTitle = mode === 'SignUp' ? 'Sign up' : 'Sign in';
+    const pageTitle = mode === 'SignUp' ? 'Welcome to Specter' : 'Log in to Specter';
 
     const handleNavigation = () => {
         if (mode == 'SignUp') {
@@ -33,15 +34,23 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChan
                 <img src="/assets/specter-logo.svg" alt="Specter Logo" />
                 <div className="flex items-center gap-1">
                     <img src="/assets/user.svg" alt="User Icon" />
-                    <p className="text-tertiary text-[14px] cursor-pointer" onClick={handleNavigation}>{formTitle}</p>
+                    <p className="text-tertiary text-[14px] cursor-pointer" onClick={handleNavigation}>
+                        {formTitle}
+                    </p>
                 </div>
             </div>
             <div className="flex justify-center">
                 <div className="_bg-vector flex flex-col items-center mt-14 lMob:px-2 max-w-[30rem] w-full p-8">
-                    <p className="text-tertiary text-3xl">Welcome to Specter</p>
+                    <p className="text-tertiary text-3xl">{pageTitle}</p>
                     <div className="text-light-grey text-center text-base mt-4">
-                        <p>We’re looking forward to having you as an early adopter.</p>
-                        <p>Let’s create your account to get started.</p>
+                        {mode === 'SignUp' ? (
+                            <>
+                                <p>We’re looking forward to having you as an early adopter.</p>
+                                <p>Let’s create your account to get started.</p>
+                            </>
+                        ) : (
+                            <p>Welcome back. We appreciate you being an early adopter.</p>
+                        )}
                     </div>
 
                     <div className="mt-6 w-[24rem] flex flex-col gap-8 lMob:px-6 mMob:px-12 ">
@@ -57,7 +66,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChan
                             onChange={onEmailChange}
                             placeholderColor="text-custom-gray"
                         />
-                        <CommonButton text={mode === 'SignUp' ? 'Create Account' : 'Continue'} onClick={onEmailSubmit} />
+                        <CommonButton text={mode === 'SignUp' ? 'Create Account' : 'Continue'} onClick={onEmailSubmit} loading={loading}/>
                         {error && <p className="text-red-500 mt-2">{error}</p>}
                     </div>
                 </div>
