@@ -29,8 +29,6 @@ const VerifyMagicLink: React.FC = () => {
         const verifyToken = async () => {
             try {
                 const response = await axios.get<SessionData>(`http://localhost:5000/api/verify-magic-link?token=${token}`);
-                console.log('response', response);
-
                 localStorage.setItem('session', JSON.stringify(response.data.session));
 
                 setLoading(false);

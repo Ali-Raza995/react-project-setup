@@ -21,9 +21,7 @@ const Login = () => {
                     },
                     body: JSON.stringify({ email })
                 });
-                const data: any = response.json();
-                console.log('data',data)
-                console.log('data', data);
+                const data: any = await response.json();
                 if (!response.ok) {
                     showToast('error', data.message);
                 } else {
