@@ -8,6 +8,7 @@ import React from 'react';
 import { Loadable } from '../utils/loadable';
 import VerifyMagicLink from '../components/auth/verify-email';
 import RequireAuth from '../components/auth/require-auth';
+import OAuthCallback from '../components/auth/google-oauth';
 
 const ChatBotLazy = Loadable(lazy(() => import('../pages/chatbot/index')));
 
@@ -35,6 +36,7 @@ export const AppRoutes: FC = () => (
             <Route path={ROUTE_CONSTANTS.LOGIN} element={<Login />} />
             <Route path={ROUTE_CONSTANTS.SIGNUP} element={<SignUp />} />
             <Route path={ROUTE_CONSTANTS.VERIFYEMAIL} element={<VerifyMagicLink />} />
+            <Route path="/auth/callback" element={<OAuthCallback />} />
         </Route>
 
         {/* Grouping authenticated (protected) routes */}

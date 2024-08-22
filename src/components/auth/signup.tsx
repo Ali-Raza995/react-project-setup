@@ -4,7 +4,7 @@ import showToast from '../shared/toast';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -28,8 +28,8 @@ const Signup = () => {
                     showToast('error', data.message);
                 } else {
                     showToast('success', data.message);
-                    setEmail('')
-                    navigate('/login')
+                    setEmail('');
+                    navigate('/login');
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -38,9 +38,21 @@ const Signup = () => {
             }
         }
     };
+    const handleGoogleSignUp = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api/signup/google');
+            const data = await response.json();
+            console.log('data', data)
+            showToast('success', data.message)
 
-    const handleGoogleSignUp = () => {
-        console.log('Google Sign Up');
+            if (data.data.url) {
+                window.location.href = data.data.url; 
+            } else {
+                console.error('Error:', data.message);
+            }
+        } catch (error) {
+            console.error('Error during Google signup:', error);
+        }
     };
 
     return (

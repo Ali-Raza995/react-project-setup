@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const CreateChatbot = () => {
     const navigate = useNavigate()
     const handleSignOut = () => {
-        localStorage.removeItem('session');
+        localStorage.clear();
         navigate('/login')
     };
     return (

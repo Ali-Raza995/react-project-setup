@@ -21,6 +21,7 @@ const showToast = (type: ToastType, message: string) => {
     pauseOnHover: true,
     draggable: true,
     progress: 0,
+    theme: "dark"
   };
 
   const toastFunc = toastTypes[type];
