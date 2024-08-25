@@ -8,18 +8,19 @@ const OAuthCallback = () => {
 
     useEffect(() => {
         const checkSession = async () => {
-            const { data: { session } } = await supabase.auth.getSession();
+            const {
+                data: { session }
+            } = await supabase.auth.getSession();
             if (session) {
                 localStorage.setItem('session', JSON.stringify(session));
                 console.log('Session:', session);
-                showToast("success", "User signup Successfully")
+                showToast('success', 'User Logged In Successfully');
                 navigate('/chatbot');
             } else {
                 console.error('No session found');
                 navigate('/login');
             }
         };
-
         checkSession();
     }, []);
 
