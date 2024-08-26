@@ -9,8 +9,10 @@ import { Loadable } from '../utils/loadable';
 import VerifyMagicLink from '../components/auth/verify-email';
 import RequireAuth from '../components/auth/require-auth';
 import OAuthCallback from '../components/auth/google-oauth';
+import ProtectedLayout from '../components/layout/protected-layout';
 
 const ChatBotLazy = Loadable(lazy(() => import('../pages/chatbot/index')));
+const CREATEChatBotLazy = Loadable(lazy(() => import('../pages/chatbot/create-chatbot/index')));
 
 const AuthLayout: FC<{ redirectAuthenticatedTo: string }> = ({ redirectAuthenticatedTo }) => {
     return (
@@ -20,13 +22,6 @@ const AuthLayout: FC<{ redirectAuthenticatedTo: string }> = ({ redirectAuthentic
     );
 };
 
-const ProtectedLayout: FC = () => {
-    return (
-        <RequireAuth>
-            <Outlet />
-        </RequireAuth>
-    );
-};
 
 export const AppRoutes: FC = () => (
     <Routes>
@@ -38,11 +33,14 @@ export const AppRoutes: FC = () => (
             <Route path={ROUTE_CONSTANTS.VERIFYEMAIL} element={<VerifyMagicLink />} />
             <Route path="/auth/callback" element={<OAuthCallback />} />
         </Route>
-
-        {/* Grouping authenticated (protected) routes */}
-        <Route element={<ProtectedLayout />}>
+        <Route element={<ProtectedLayout showSidebar={true} />}>
             <Route path={ROUTE_CONSTANTS.CHATBOT} element={<ChatBotLazy />} />
+            <Route path={ROUTE_CONSTANTS.CREATECHATBOT} element={<CREATEChatBotLazy />} />
         </Route>
+
+        <Route element={<ProtectedLayout showSidebar={false} />}>
+        </Route>
+
 
         <Route path="*" element={<NotFound />} />
     </Routes>

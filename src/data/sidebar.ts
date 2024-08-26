@@ -2,16 +2,16 @@ export const navRoutes = [
     {
         path: '/chatbot',
         routeName: 'Chatbots',
-        icon: '/assets/dashboardIcon.svg'
+        icon: '/assets/dashboard-icon.svg'
     },
     {
         path: '#',
         routeName: 'Analytics',
-        icon: '/assets/AnalyticsIcon.svg'
+        icon: '/assets/analytics-icon.svg'
     },
     {
         path: '#',
         routeName: 'Settings',
-        icon: '/assets/SettingsIcon.svg'
+        icon: '/assets/settings-icon.svg'
     }
 ];

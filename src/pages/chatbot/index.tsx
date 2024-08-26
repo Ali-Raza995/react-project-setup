@@ -1,14 +1,14 @@
 import React from 'react';
 import Sidebar from '../../components/layout/sidebar';
-import CreateChatbot from '../../components/chatbot/create-chatbot';
+import Chatbot from '../../components/chatbot/chatbot';
 
-const Chatbot = () => {
+
+const ChatbotPage = () => {
     return (
-        <div className="text-white flex lMob:flex-col">
-            <Sidebar />
-            <CreateChatbot />
+        <div className="text-white">
+            <Chatbot />
         </div>
     );
 };
 
-export default Chatbot;
+export default ChatbotPage;

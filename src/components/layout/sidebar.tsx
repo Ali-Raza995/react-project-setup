@@ -23,7 +23,7 @@ const Sidebar = () => {
                                     <img src={icon} alt="" width={20} height={20} />
                                 </div>
 
-                                <p className={`text-[14px] ${currentPath === path ? 'text-white' : 'text-light-gray'}  text-light-gray`}>{routeName}</p>
+                                <p className={`text-[14px] ${currentPath === path ? 'text-white' : 'text-pale-gray'}  text-pale-gray`}>{routeName}</p>
                             </Link>
                         );
                     })}

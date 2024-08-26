@@ -42,7 +42,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChan
             <div className="flex justify-center">
                 <div className="_bg-vector flex flex-col items-center mt-14 lMob:px-2 max-w-[30rem] w-full p-8">
                     <p className="text-tertiary text-3xl">{pageTitle}</p>
-                    <div className="text-light-grey text-center text-base mt-4">
+                    <div className="text- text-center text-base mt-4">
                         {mode === 'SignUp' ? (
                             <>
                                 <p>We’re looking forward to having you as an early adopter.</p>
@@ -56,15 +56,15 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChan
                     <div className="mt-6 w-[24rem] flex flex-col gap-8 lMob:px-6 mMob:px-12 ">
                         <CommonButton text={`${googleAuthTitle} with Google`} onClick={onGoogleSignUp} icon="/assets/google-logo.svg" />
                         <div className="flex items-center justify-between">
-                            <span className="w-full h-px bg-custom-gray"></span>
-                            <span className="px-4 text-custom-gray text-xs whitespace-nowrap">Or, continue with email</span>
-                            <span className="w-full h-px bg-custom-gray"></span>
+                            <span className="w-full h-px bg-gray"></span>
+                            <span className="px-4 text-gray text-xs whitespace-nowrap">Or, continue with email</span>
+                            <span className="w-full h-px bg-gray"></span>
                         </div>
                         <CommonInputField
                             placeholder="Your email address"
                             value={email}
                             onChange={onEmailChange}
-                            placeholderColor="text-custom-gray"
+                            placeholderColor="text-gray"
                         />
                         <CommonButton text={mode === 'SignUp' ? 'Create Account' : 'Continue'} onClick={onEmailSubmit} loading={loading}/>
                         {error && <p className="text-red-500 mt-2">{error}</p>}
