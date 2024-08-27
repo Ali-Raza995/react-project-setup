@@ -1,19 +1,19 @@
 import React from 'react';
 import CommonButton from '../shared/button';
-import CommonInputField from '../shared/customer-input';
+import CommonInputField from './custom-input';
 import { useNavigate } from 'react-router-dom';
 
 interface AuthFormProps {
     mode?: string;
-    email: string;
-    onEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onEmailSubmit: () => void;
+    fieldValue: string;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleSubmit: () => void;
     onGoogleSignUp?: () => void;
     loading?: boolean;
     error?: string | null;
 }
 
-const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChange, onEmailSubmit, onGoogleSignUp, loading, error }) => {
+const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', fieldValue, handleChange, handleSubmit, onGoogleSignUp, loading, error }) => {
     const navigate = useNavigate();
 
     const formTitle = mode === 'SignUp' ? 'Sign in' : 'Sign up';
@@ -62,11 +62,11 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', email, onEmailChan
                         </div>
                         <CommonInputField
                             placeholder="Your email address"
-                            value={email}
-                            onChange={onEmailChange}
+                            fieldValue={fieldValue}
+                            onChange={handleChange}
                             placeholderColor="text-gray"
                         />
-                        <CommonButton text={mode === 'SignUp' ? 'Create Account' : 'Continue'} onClick={onEmailSubmit} loading={loading}/>
+                        <CommonButton text={mode === 'SignUp' ? 'Create Account' : 'Continue'} onClick={handleSubmit} loading={loading}/>
                         {error && <p className="text-red-500 mt-2">{error}</p>}
                     </div>
                 </div>

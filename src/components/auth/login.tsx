@@ -36,7 +36,7 @@ const Login = () => {
         }
     };
 
-    return <AuthForm mode="SignIn" email={email} onEmailChange={handleEmailChange} onEmailSubmit={handleEmailSubmit} loading={loading} />;
+    return <AuthForm mode="SignIn" fieldValue={email} handleChange={handleEmailChange} handleSubmit={handleEmailSubmit} loading={loading} />;
 };
 
 export default Login;

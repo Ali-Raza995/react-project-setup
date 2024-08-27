@@ -58,9 +58,9 @@ const Signup = () => {
     return (
         <AuthForm
             mode="SignUp"
-            email={email}
-            onEmailChange={handleEmailChange}
-            onEmailSubmit={handleSignUpWithEmail}
+            fieldValue={email}
+            handleChange={handleEmailChange}
+            handleSubmit={handleSignUpWithEmail}
             onGoogleSignUp={handleGoogleSignUp}
             loading={loading}
         />

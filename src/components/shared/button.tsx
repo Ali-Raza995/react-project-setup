@@ -25,7 +25,7 @@ const CommonButton: React.FC<ButtonProps> = ({
     activeStyles = '',
     isActive = false, // Check if button is active
 }) => {
-    const baseStyles = `flex items-center justify-center rounded-full shadow-md transition ${width} ${height} bg-secondary ${isActive ? 'text-black' : 'text-tertiary '}`;
+    const baseStyles = `flex items-center justify-center rounded-full lMob:rounded-xl  shadow-md transition ${width} ${height} bg-secondary ${isActive ? 'text-black' : 'text-tertiary '}`;
     const hoverClass = hoverStyles ? hoverStyles : '';
     const activeClass = isActive ? activeStyles : ''; // Apply active styles if isActive is true
 
@@ -42,7 +42,7 @@ const CommonButton: React.FC<ButtonProps> = ({
                 ) : (
                     <>
                         {icon && <img src={icon} alt="icon" />}
-                        <span className="text-base">{text}</span>
+                        <span className="text-base lMob:text-xs sMob:text-[9px]">{text}</span>
                     </>
                 )}
             </span>

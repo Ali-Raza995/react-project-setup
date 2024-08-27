@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CommonButton from '../../shared/button';
-import { buttonData } from '../../../data/upload-file-buttons';
+import { buttonData } from '../../../data';
 import { ButtonData } from '../../../types';
 import UploadFiles from './upload-files';
 import WebsiteUrl from './webiste-url';
@@ -34,15 +34,15 @@ const CreateChatBot: React.FC = () => {
     };
 
     return (
-        <div className="text-light-gray p-8 flex flex-col gap-10 mt-1 w-full">
+        <div className="text-light-gray p-8 flex flex-col gap-10 lMob:gap-2 mt-1 w-full">
             <div className="flex w-full gap-1 text-xs">
                 <p>Chatbots</p>
                 <img src="/assets/arrow-left.svg" alt="" />
                 <p>Create an assistant</p>
             </div>
             <div className="mt-4 flex flex-col gap-2">
-                <h1 className="text-3xl text-tertiary">Let’s start by adding to the knowledge base</h1>
-                <p className="text-sm">
+                <h1 className="text-3xl text-tertiary lMob:text-xl">Let’s start by adding to the knowledge base</h1>
+                <p className="text-sm lMob:text-xs">
                     Your assistant will train on these data sources and utilize this knowledge when responding to your potential clients.
                 </p>
                 <div className="flex gap-4 max-w-[30rem] mt-6">
