@@ -26,7 +26,6 @@ const CreateChatBot: React.FC = () => {
     };
 
     const handleFileSelect = (file: File) => {
-        console.log('File selected:', file);
         simulateUploadProgress();
     };
     const handleButtonClick = (buttonId: string) => {

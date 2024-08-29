@@ -19,7 +19,6 @@ const FileUpload: React.FC<FileUploadProps> = ({ uploadProgress, simulateUploadP
         const files = Array.from(event.target.files || []);
         setSelectedFiles((prevFiles) => [...prevFiles, ...files]);
     };
-    console.log('selectedFiles', selectedFiles)
 
     const handleUpload = () => {
         if (selectedFiles.length > 0) {
