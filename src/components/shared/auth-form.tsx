@@ -42,7 +42,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode = 'SignUp', fieldValue, handle
             <div className="flex justify-center">
                 <div className="_bg-vector flex flex-col items-center mt-14 lMob:px-2 max-w-[30rem] w-full p-8">
                     <p className="text-tertiary text-3xl">{pageTitle}</p>
-                    <div className="text- text-center text-base mt-4">
+                    <div className="text-medium-gray text-center text-base mt-4">
                         {mode === 'SignUp' ? (
                             <>
                                 <p>We’re looking forward to having you as an early adopter.</p>

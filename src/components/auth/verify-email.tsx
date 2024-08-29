@@ -60,7 +60,7 @@ const VerifyMagicLink: React.FC = () => {
             <div className="flex justify-between p-6 items-center">
                 <img src="/assets/specter-logo.svg" alt="Specter Logo" />
             </div>
-            <div className="flex flex-col justify-center h-screen text-white">
+            <div className="flex flex-col justify-center h-[90vh] text-white">
                 {loading ? (
                     <div className="flex flex-col items-center">
                         <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-white"></div>

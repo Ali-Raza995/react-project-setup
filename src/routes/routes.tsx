@@ -10,6 +10,7 @@ import VerifyMagicLink from '../components/auth/verify-email';
 import RequireAuth from '../components/auth/require-auth';
 import OAuthCallback from '../components/auth/google-oauth';
 import ProtectedLayout from '../components/layout/protected-layout';
+import CheckEmail from '../components/auth/check-email';
 
 const ChatBotLazy = Loadable(lazy(() => import('../pages/chatbot/index')));
 const CREATEChatBotLazy = Loadable(lazy(() => import('../pages/chatbot/create-chatbot/index')));
@@ -22,7 +23,6 @@ const AuthLayout: FC<{ redirectAuthenticatedTo: string }> = ({ redirectAuthentic
     );
 };
 
-
 export const AppRoutes: FC = () => (
     <Routes>
         <Route path={ROUTE_CONSTANTS.SLASH} element={<Navigate to={ROUTE_CONSTANTS.CHATBOT} />} />
@@ -30,17 +30,16 @@ export const AppRoutes: FC = () => (
         <Route element={<AuthLayout redirectAuthenticatedTo={ROUTE_CONSTANTS.CHATBOT} />}>
             <Route path={ROUTE_CONSTANTS.LOGIN} element={<Login />} />
             <Route path={ROUTE_CONSTANTS.SIGNUP} element={<SignUp />} />
-            <Route path={ROUTE_CONSTANTS.VERIFYEMAIL} element={<VerifyMagicLink />} />
-            <Route path="/auth/callback" element={<OAuthCallback />} />
+            <Route path={ROUTE_CONSTANTS.VERIFY_EMAIL} element={<VerifyMagicLink />} />
+            <Route path={ROUTE_CONSTANTS.CHECK_EMAIL} element={<CheckEmail />} />
+            <Route path={ROUTE_CONSTANTS.AUTH_CALLBACK} element={<OAuthCallback />} />
         </Route>
         <Route element={<ProtectedLayout showSidebar={true} />}>
             <Route path={ROUTE_CONSTANTS.CHATBOT} element={<ChatBotLazy />} />
-            <Route path={ROUTE_CONSTANTS.CREATECHATBOT} element={<CREATEChatBotLazy />} />
+            <Route path={ROUTE_CONSTANTS.CREATE_CHATBOT} element={<CREATEChatBotLazy />} />
         </Route>
 
-        <Route element={<ProtectedLayout showSidebar={false} />}>
-        </Route>
-
+        <Route element={<ProtectedLayout showSidebar={false} />}></Route>
 
         <Route path="*" element={<NotFound />} />
     </Routes>
