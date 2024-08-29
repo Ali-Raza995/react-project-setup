@@ -25,9 +25,9 @@ const AuthLayout: FC<{ redirectAuthenticatedTo: string }> = ({ redirectAuthentic
 
 export const AppRoutes: FC = () => (
     <Routes>
-        <Route path={ROUTE_CONSTANTS.SLASH} element={<Navigate to={ROUTE_CONSTANTS.CHATBOT} />} />
+        <Route path={ROUTE_CONSTANTS.SLASH} element={<Navigate to={ROUTE_CONSTANTS.CREATE_CHATBOT} />} />
 
-        <Route element={<AuthLayout redirectAuthenticatedTo={ROUTE_CONSTANTS.CHATBOT} />}>
+        <Route element={<AuthLayout redirectAuthenticatedTo={ROUTE_CONSTANTS.CREATE_CHATBOT} />}>
             <Route path={ROUTE_CONSTANTS.LOGIN} element={<Login />} />
             <Route path={ROUTE_CONSTANTS.SIGNUP} element={<SignUp />} />
             <Route path={ROUTE_CONSTANTS.VERIFY_EMAIL} element={<VerifyMagicLink />} />
@@ -35,8 +35,8 @@ export const AppRoutes: FC = () => (
             <Route path={ROUTE_CONSTANTS.AUTH_CALLBACK} element={<OAuthCallback />} />
         </Route>
         <Route element={<ProtectedLayout showSidebar={true} />}>
-            <Route path={ROUTE_CONSTANTS.CHATBOT} element={<ChatBotLazy />} />
-            <Route path={ROUTE_CONSTANTS.CREATE_CHATBOT} element={<CREATEChatBotLazy />} />
+            <Route path={ROUTE_CONSTANTS.CREATE_CHATBOT} element={<ChatBotLazy />} />
+            <Route path={ROUTE_CONSTANTS.CREATE_ASSISTANT} element={<CREATEChatBotLazy />} />
         </Route>
 
         <Route element={<ProtectedLayout showSidebar={false} />}></Route>

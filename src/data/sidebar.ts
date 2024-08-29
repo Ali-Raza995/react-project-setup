@@ -1,7 +1,7 @@
 export const navRoutes = [
     {
-        path: '/chatbot',
-        routeName: 'Chatbots',
+        path: '/create-chatbot',
+        routeName: 'Chatbot',
         icon: '/assets/dashboard-icon.svg'
     },
     {

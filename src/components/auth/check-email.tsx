@@ -3,8 +3,6 @@ import React from 'react';
 const CheckEmail: React.FC = () => {
     const queryParams = new URLSearchParams(window.location.search);
     const email = queryParams.get('email');
-    console.log('email', email)
-
     return (
         <>
             <div className="flex justify-between p-6 items-center">

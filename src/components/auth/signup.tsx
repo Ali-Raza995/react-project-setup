@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import AuthForm from '../shared/auth-form';
 import showToast from '../shared/toast';
 import { useNavigate } from 'react-router-dom';
+import { googleSignUp, signup } from '../../store/auth/auth-slice';
+import { useAppDispatch, useAppSelector } from '../../store/store';
+import { RESPONSE_STATUS } from '../../constants';
 
 const Signup = () => {
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const isLoading = useAppSelector((state) => state.loader.isLoading);
     const [email, setEmail] = useState('');
-    const [loading, setLoading] = useState(false);
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
@@ -14,42 +18,19 @@ const Signup = () => {
 
     const handleSignUpWithEmail = async () => {
         if (email) {
-            setLoading(true);
             try {
-                const response: any = await fetch('http://localhost:5000/api/send-magic-link', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email })
-                });
-                const data = await response.json();
-                if (!response.ok) {
-                    showToast('error', data.message);
-                } else {
-                    showToast('success', data.message);
-                    setEmail('');
-                    navigate('/login');
+                const response = await dispatch(signup({ email }));
+                if (response?.meta?.requestStatus === RESPONSE_STATUS.FULFILLED) {
+                    navigate(`/check-email?email=${email}`);
                 }
             } catch (error) {
                 console.error('Error:', error);
-            } finally {
-                setLoading(false);
             }
         }
     };
     const handleGoogleSignUp = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/signup/google');
-            const data = await response.json();
-            console.log('data', data)
-            showToast('success', data.message)
-
-            if (data.data.url) {
-                window.location.href = data.data.url; 
-            } else {
-                console.error('Error:', data.message);
-            }
+            dispatch(googleSignUp());
         } catch (error) {
             console.error('Error during Google signup:', error);
         }
@@ -62,7 +43,7 @@ const Signup = () => {
             handleChange={handleEmailChange}
             handleSubmit={handleSignUpWithEmail}
             onGoogleSignUp={handleGoogleSignUp}
-            loading={loading}
+            loading={isLoading}
         />
     );
 };

@@ -6,6 +6,6 @@ export const ROUTE_CONSTANTS = {
   VERIFY_EMAIL: "/verify-email",
   CHECK_EMAIL: "/check-email",
   DASHBOARD: "/dashboard",
-  CHATBOT: "/chatbot",
   CREATE_CHATBOT: "/create-chatbot",
+  CREATE_ASSISTANT: "/create-assistant",
 };

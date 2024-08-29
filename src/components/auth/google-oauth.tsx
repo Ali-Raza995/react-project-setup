@@ -13,11 +13,9 @@ const OAuthCallback = () => {
             } = await supabase.auth.getSession();
             if (session) {
                 localStorage.setItem('session', JSON.stringify(session));
-                console.log('Session:', session);
                 showToast('success', 'User Logged In Successfully');
-                navigate('/chatbot');
+                navigate('/create-chatbot');
             } else {
-                console.error('No session found');
                 navigate('/login');
             }
         };

@@ -20,7 +20,7 @@ const CreateChatBot: React.FC = () => {
                     clearInterval(interval);
                     return 100;
                 }
-                return prevProgress + 10;
+                return prevProgress + 5;
             });
         }, 200);
     };
@@ -60,7 +60,7 @@ const CreateChatBot: React.FC = () => {
                 </div>
 
                 <div>
-                    {activeButton == 'upload-files' && <UploadFiles onFileSelect={handleFileSelect} uploadProgress={uploadProgress} />}
+                    {activeButton == 'upload-files' && <UploadFiles uploadProgress={uploadProgress} simulateUploadProgress={simulateUploadProgress}/>}
                     {activeButton == 'website-urls' && <WebsiteUrl />}
                     {activeButton == 'freeform-text' && <FreeFromText />}
                 </div>
