@@ -4,7 +4,7 @@ import { recommendedWebsites } from '../../../data';
 import CommonInputField from '../../shared/custom-input';
 import CommonButton from '../../shared/button';
 
-const WebsiteUrl = () => {
+const WebsiteUrl:React.FC<any> = ({handleUpload}) => {
     const [websiteUrl, setWebsiteUrl] = useState('');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setWebsiteUrl(event?.target.value);
@@ -36,7 +36,7 @@ const WebsiteUrl = () => {
                     </div>
 
                     <div className=" w-[220px] lap:hidden block">
-                        <button className="bg-charcoal-gray hover:bg-gray-600 text-white py-3 px-6 rounded-[190px] mt-6">
+                        <button onClick={handleUpload} className="bg-charcoal-gray hover:bg-gray-600 text-white py-3 px-6 rounded-[190px] mt-6">
                             <span className="text-[20px]"> + </span> Create assistant
                         </button>
                     </div>
@@ -47,7 +47,7 @@ const WebsiteUrl = () => {
             </div>
 
             <div className=" w-[220px] lap:block hidden">
-                <button className="bg-charcoal-gray hover:bg-gray-600 text-white py-3 px-6 rounded-[190px] mt-6">
+                <button onClick={handleUpload} className="bg-charcoal-gray hover:bg-gray-600 text-white py-3 px-6 rounded-[190px] mt-6">
                     <span className="text-[20px]"> + </span> Create assistant
                 </button>
             </div>

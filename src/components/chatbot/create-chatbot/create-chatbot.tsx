@@ -5,9 +5,14 @@ import { ButtonData } from '../../../types';
 import UploadFiles from './upload-files';
 import WebsiteUrl from './webiste-url';
 import FreeFromText from './free-form-text';
+import { useAppDispatch } from '../../../store/store';
+import { uploadDocuments } from '../../../store/chatbot/create-assistent-slice';
 
 const CreateChatBot: React.FC = () => {
+    const dispatch = useAppDispatch();
     const [uploadProgress, setUploadProgress] = useState(0);
+    const [freeFormText, setFreeFormText] = useState('');
+    const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
 
     const [activeButton, setActiveButton] = useState<string | null>('upload-files');
@@ -30,6 +35,12 @@ const CreateChatBot: React.FC = () => {
     };
     const handleButtonClick = (buttonId: string) => {
         setActiveButton(buttonId);
+    };
+    const handleUpload = () => {
+        if (selectedFiles.length > 0 || freeFormText) {
+            dispatch(uploadDocuments({ selectedFiles , freeFormText})); 
+            simulateUploadProgress();
+        }
     };
 
     return (
@@ -59,9 +70,9 @@ const CreateChatBot: React.FC = () => {
                 </div>
 
                 <div>
-                    {activeButton == 'upload-files' && <UploadFiles uploadProgress={uploadProgress} simulateUploadProgress={simulateUploadProgress}/>}
-                    {activeButton == 'website-urls' && <WebsiteUrl />}
-                    {activeButton == 'freeform-text' && <FreeFromText />}
+                    {activeButton == 'upload-files' && <UploadFiles uploadProgress={uploadProgress} simulateUploadProgress={simulateUploadProgress} handleUpload={handleUpload} setSelectedFiles={setSelectedFiles}/>}
+                    {activeButton == 'website-urls' && <WebsiteUrl handleUpload={handleUpload}/>}
+                    {activeButton == 'freeform-text' && <FreeFromText setFreeFormText={setFreeFormText} freeFormText={freeFormText} handleUpload={handleUpload}/>}
                 </div>
             </div>
         </div>

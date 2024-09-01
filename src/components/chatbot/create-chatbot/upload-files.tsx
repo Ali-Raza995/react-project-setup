@@ -9,23 +9,18 @@ import { useAppDispatch } from '../../../store/store';
 interface FileUploadProps {
     uploadProgress: number;
     simulateUploadProgress: any;
+    setSelectedFiles:any,
+    handleUpload: any
 }
 
-const FileUpload: React.FC<FileUploadProps> = ({ uploadProgress, simulateUploadProgress }) => {
-    const dispatch = useAppDispatch();
-    const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+const FileUpload: React.FC<FileUploadProps> = ({ uploadProgress, simulateUploadProgress , setSelectedFiles, handleUpload}) => {
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const files = Array.from(event.target.files || []);
-        setSelectedFiles((prevFiles) => [...prevFiles, ...files]);
+        setSelectedFiles((prevFiles:any) => [...prevFiles, ...files]);
     };
 
-    const handleUpload = () => {
-        if (selectedFiles.length > 0) {
-            dispatch(uploadDocuments({ selectedFiles })); 
-            simulateUploadProgress();
-        }
-    };
+
 
     return (
         <>

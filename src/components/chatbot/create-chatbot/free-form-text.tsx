@@ -4,14 +4,8 @@ import { recommendedContent } from '../../../data';
 import CommonInputField from '../../shared/custom-input';
 import CommonButton from '../../shared/button';
 
-const FreeFormText = () => {
-    const [freeFormText, setFreeFormText] = useState('');
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setFreeFormText(event?.target.value);
-    };
-    const handleSubmit = async () => {
-        console.log('freeFormText', freeFormText);
-    };
+const FreeFormText:React.FC<any> = ({freeFormText, setFreeFormText, handleUpload}) => {
+
     return (
         <>
             <p className="text-[20px] text-tertiary lMob:text-lg mt-8">Enter freeform text</p>
@@ -42,7 +36,7 @@ const FreeFormText = () => {
                             </div>
                         </div>
                         <div className="w-[220px] lMob:hidden block">
-                            <button className="bg-charcoal-gray hover:bg-gray-600 text-white py-3 px-6 rounded-[190px] mt-6">
+                            <button className="bg-charcoal-gray hover:bg-gray-600 text-white py-3 px-6 rounded-[190px] mt-6" onClick={handleUpload}>
                                 <span className="text-[20px]"> + </span> Create assistant
                             </button>
                         </div>
